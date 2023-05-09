@@ -191,6 +191,7 @@ namespace TreeCollection.Tests
                 foreach (var item in tree)
                 {
                     actual.Add(item);
+                    
                 }
             }
 

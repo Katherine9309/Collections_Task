@@ -2,7 +2,7 @@
 
 namespace TreeCollection.TestModels.Models
 {
-    public class ExamResult
+    public class ExamResult:IComparable<ExamResult>
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -17,6 +17,20 @@ namespace TreeCollection.TestModels.Models
             Exam = exam;
             Score = score;
             Date = date;
+            
+            
+        }
+
+        public int CompareTo(ExamResult other)
+        {
+            int compareResult = this.Name.CompareTo(other.Name);
+            if (compareResult == 0) {
+                compareResult = this.Date.CompareTo(other.Date);
+                if(compareResult == 0) { 
+                    compareResult=this.Id.CompareTo(other.Id);
+                }
+            }
+            return compareResult;
         }
     }
 }
